@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="col-md-6 offset-md-3" style="align-items: center;" back>
+            <div class="card text-center" style="padding: 20px;">
+                <h3>Register</h3>
+                <br>
+                <form [formGroup]="register" (ngSubmit)="registerUser()" action="">
+                    <div class="mb-3" style="text-align: start;">
+                        <input formControlName="user"  type="text" class="form-control" placeholder="User">
+                        <span class="text-danger ms-2"
+                            *ngIf="register.get('user')?.hasError('required')
+                                    && register.get('user')?.touched">
+                            The User <strong> is required</strong>
+                        </span>
+                    </div>
+                    <div class="mb-3" style="text-align: start;">
+                        <input formControlName="password" type="password" class="form-control" placeholder="Password">
+                        <span class="text-danger ms-2"
+                        *ngIf="register.get('password')?.hasError('required')
+                                && register.get('password')?.touched">
+                            The Password <strong> is required</strong>
+                        </span>
+                        <span class="text-danger ms-2"
+                        *ngIf="register.get('password')?.hasError('minlength')
+                                && register.get('password')?.touched">
+                            The Password  should <strong> contain 6 characters</strong>
+                        </span>
+                    </div>
+                    <div class="mb-3" style="text-align: start;">
+                        <input formControlName="confirmPassword" type="password" class="form-control" placeholder="Confirmation Password">
+                        <span class="text-danger ms-2"
+                        *ngIf="register.hasError('notSame')
+                                && register.get('confirmPassword')?.touched">
+                            Password <strong> different</strong>
+                        </span>
+                    </div>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-primary btn-login" [disabled]="register.invalid" type="submit">Accept</button>
+                        <button class="btn btn-secondary" routerLink="/start">Return</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
