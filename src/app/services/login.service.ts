@@ -22,4 +22,17 @@ export class LoginService {
   {
     return this.http.post(this.myAppUrl + this.myApiUrl, user);
   }
+
+  setLocalStorage(data:string): void {
+    localStorage.setItem('userName', data);
+  }
+
+  getUserName(): string{
+    return localStorage.getItem('userName')!.toString();
+  }
+
+  removeLocalStorage(): void{
+    localStorage.removeItem('userName');
+  }
+
 }
