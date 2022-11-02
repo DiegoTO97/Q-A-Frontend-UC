@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private toastr: ToastrService,
-              private router: Router) { 
+              private router: Router,
+              private loginService: LoginService) { 
     this.login = this.fb.group({
       user: ['', Validators.required],
       password: ['', Validators.required]
@@ -32,22 +34,18 @@ export class LoginComponent implements OnInit {
       password: this.login.value.password 
     }
     this.loading = true;
-    setTimeout(()=>{
-      if(user.userName === 'Diego' && user.password === 'admin')
-      {
-        this.login.reset();
+    this.loginService.login(user).subscribe(data => {
+        console.log(data);
+        this.loading = false;
+        this.loginService.setLocalStorage(data.user);
         this.router.navigate(['/dashboard']);
-        this.toastr.success('Login succesfull', 'Succes', {
-          timeOut: 2000,
-        });
-      } else {
-        this.toastr.error('User or password incorrect', 'Error', {
-          timeOut: 3000,
-        });
-        this.login.reset();
-      }
-      this.loading=false;
-    },2000);
+    }, error =>
+    {
+      console.log(error);
+      this.loading = false;
+      this.toastr.error(error.error.message, 'Error');
+      this.login.reset();
+    });
     
     console.log(user);
   }
