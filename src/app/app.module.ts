@@ -22,6 +22,10 @@ import { ChangePasswordComponent } from './components/dashboard/change-password/
 import { QuestionnairesComponent } from './components/dashboard/questionnaires/questionnaires.component';
 import { NavbarComponent } from './components/dashboard/navbar/navbar.component';
 import { loadingComponent } from './shared/loading/loading.component';
+import { NewQuestionnairesComponent } from './components/dashboard/questionnaires/new-questionnaires/new-questionnaires.component';
+import { StepOneComponent } from './components/dashboard/questionnaires/new-questionnaires/step-one/step-one.component';
+import { StepTwoComponent } from './components/dashboard/questionnaires/new-questionnaires/step-two/step-two.component';
+import { NewQuestionComponent } from './components/dashboard/questionnaires/new-questionnaires/step-two/new-question/new-question.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,10 @@ import { loadingComponent } from './shared/loading/loading.component';
     QuestionnairesComponent,
     NavbarComponent,
     loadingComponent,
+    NewQuestionnairesComponent,
+    NewQuestionComponent,
+    StepOneComponent,
+    StepTwoComponent,
   ],
   imports: [
     BrowserModule,

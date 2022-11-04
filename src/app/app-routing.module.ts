@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChangePasswordComponent } from './components/dashboard/change-password/change-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { NavbarComponent } from './components/dashboard/navbar/navbar.component';
+import { NewQuestionnairesComponent } from './components/dashboard/questionnaires/new-questionnaires/new-questionnaires.component';
+import { StepOneComponent } from './components/dashboard/questionnaires/new-questionnaires/step-one/step-one.component';
+import { StepTwoComponent } from './components/dashboard/questionnaires/new-questionnaires/step-two/step-two.component';
 import { QuestionnairesComponent } from './components/dashboard/questionnaires/questionnaires.component';
 import { LoginComponent } from './components/start/login/login.component';
 import { RegisterComponent } from './components/start/register/register.component';
@@ -19,8 +21,12 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, children: [
     { path: '', component: QuestionnairesComponent},
     { path: 'changePassword', component: ChangePasswordComponent},
-    { path: 'navbar', component: NavbarComponent}, 
+    { path: 'newQuestionnaire', component: NewQuestionnairesComponent, children:[
+      { path: 'stepOne', component: StepOneComponent},
+      { path: 'stepTwo', component: StepTwoComponent}
+    ]},
   ]},
+  
   { path: '**', redirectTo: '/start', pathMatch: 'full'}
 ];
 
