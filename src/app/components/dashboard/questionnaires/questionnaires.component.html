@@ -12,3 +12,20 @@
         </div>
     </div>
   </div>
+
+  <div class="text-center" style="margin-top: -30px;">
+    <app-loading *ngIf="loading"></app-loading>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3 mt-3">
+    <div class="card bg-light" style="margin: 5px;" *ngFor="let questionnaire of questionnaireList">
+        <div class="card-body text-center">
+            <h4 class="card-title">{{questionnaire.name}}</h4>
+            <p class="card-text">{{questionnaire.description}}</p>
+            <button class="btn btn-success radius" routerLink="/dashboard/showQuestionnaire/{{questionnaire.id!}}">SHOW</button>
+            <button class="btn btn-danger radius" (click)="deleteQuestionnaire(questionnaire.id!)">DELETE</button>
+        </div>
+    </div>
+</div>
+
+<h3 *ngIf="questionnaireList.length == 0 && loading == false">No are questionnaires to show</h3>

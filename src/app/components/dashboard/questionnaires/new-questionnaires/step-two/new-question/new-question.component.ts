@@ -17,7 +17,7 @@ export class NewQuestionComponent implements OnInit {
   @Output() sendQuestion = new EventEmitter<Question>();
 
   constructor(private fb: FormBuilder,
-    private toastr: ToastrService) {
+              private toastr: ToastrService) {
     this.newQuestion = this.fb.group({
       title: ['', Validators.required],
       answer: this.fb.array([])
@@ -71,7 +71,7 @@ export class NewQuestionComponent implements OnInit {
 
     answerArray.forEach((element: any, index: any) => {
      const answer: Answer = new Answer(element.description, false);
-      if(index === element.isCorrect && index != 0){
+      if(index === this.correctAns && index != 0){
         answer.isCorrect= true;
         band = true;
       }
@@ -83,12 +83,13 @@ export class NewQuestionComponent implements OnInit {
      }
 
     const question: Question = new Question(questionDescription, ansArray);
-
+    console.log(question);
     this.sendQuestion.emit(question);
     this.resetForm();
   }
 
   resetForm(): void{
+    this.correctAns = 0;
     this.newQuestion.reset();
     this.getAnswer.clear();
     this.addAnswerByDefault();

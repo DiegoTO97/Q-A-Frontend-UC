@@ -1,6 +1,6 @@
 import { Question } from "./question";
 
-export class Questionnaires{
+export class Questionnaire{
     id?: number;
     name: string;
     description: string;
