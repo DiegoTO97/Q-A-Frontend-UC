@@ -1,1 +1,14 @@
-<p>add-name works!</p>
+<div class="container">
+    <div class="card text-center" style="width: 100%; padding: 20px; min-height: 200px;">
+        <div class="mb-3">
+            <input type="text" class="form-control form-control-lg"
+            style="font-size: x-large;" placeholder="Enter your name" 
+            [(ngModel)]="participantName">
+        </div>
+        <div class="mt-auto">
+            <button class="btn btn-primary btn-lg" routerLink="/start/questionnaireList"> RETURN</button>
+            <button class="btn btn-primary btn-lg btn-next" (click)="nextStep()" 
+            [disabled]="participantName == '' "> NEXT</button>
+        </div>
+    </div>
+</div>

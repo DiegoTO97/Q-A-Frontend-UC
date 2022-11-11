@@ -11,6 +11,10 @@ import { LoginComponent } from './components/start/login/login.component';
 import { RegisterComponent } from './components/start/register/register.component';
 import { StartComponent } from './components/start/start.component';
 import { WelcomeComponent } from './components/start/welcome/welcome.component';
+import { QuestionnaireListComponent } from './components/start/questionnaire-list/questionnaire-list.component';
+import { AddNameComponent } from './components/start/questionnaire-list/add-name/add-name.component';
+import { QuestionComponent } from './components/start/questionnaire-list/question/question.component';
+import { AnwserQuestionnaireComponent } from './components/start/questionnaire-list/anwser-questionnaire/anwser-questionnaire.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/start', pathMatch: 'full'},
@@ -18,6 +22,10 @@ const routes: Routes = [
     { path: '', component: WelcomeComponent},
     { path: 'register', component: RegisterComponent},
     { path: 'login', component: LoginComponent},
+    { path: 'questionnaireList', component: QuestionnaireListComponent},
+    { path: 'addName', component: AddNameComponent},
+    { path: 'question', component: QuestionComponent},
+    { path: 'answerQuestionnaire', component: AnwserQuestionnaireComponent},
   ] },
   { path: 'dashboard', component: DashboardComponent, children: [
     { path: '', component: QuestionnairesComponent},

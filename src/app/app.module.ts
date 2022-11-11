@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 //Interceptors
 import { AddTokenInterceptor } from '../app/helpers/add-token.interceptor'
@@ -60,7 +61,8 @@ import { AnwserQuestionnaireComponent } from './components/start/questionnaire-l
     ReactiveFormsModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true }],
   bootstrap: [AppComponent]

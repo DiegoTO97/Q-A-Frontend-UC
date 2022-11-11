@@ -1,1 +1,32 @@
-<p>questionnaire-list works!</p>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="card text-center" style="width: 100%;">
+            <br>
+            <h3>Welcome!</h3>
+            <app-loading *ngIf="loading" style="padding-bottom: 10px;"></app-loading>
+            <h4 *ngIf="questionnairesList.length == 0" && !loading>No are questionnaire to show</h4>
+            <div class="row row-cols-1 row-cols-md-3 mt-3" style="padding: 10px;">
+                <div class="card" style="border: hidden;" *ngFor="let questionnaire of questionnairesList">
+                    <div class="card bg-ligth">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">{{ questionnaire.name }}</h4>
+                            <p class="card-text"> {{ questionnaire.description }}</p>
+                            <div style="font-size: 13px;">
+                                <strong>Made by: </strong> {{ questionnaire.user.userName }}
+                            </div>
+                            <div style="font-size: 13px;">
+                                <strong>Creation Date: </strong> {{ questionnaire.creationDate | date: "dd/MM/yy" }}
+                            </div>
+                            <button class="btn btn-success btn-start" style="margin-bottom: 10px;" (click)="addName(questionnaire.id)">START</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-auto">
+                <button class="btn btn-secondary btn-lg" style="margin-bottom: 10px;" routerLink="/start">
+                    RETURN
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

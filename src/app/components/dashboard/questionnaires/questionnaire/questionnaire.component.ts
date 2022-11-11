@@ -9,6 +9,8 @@ import { QuestionnairesService } from 'src/app/services/questionnaires.service';
 })
 export class QuestionnaireComponent implements OnInit {
   questionnaireId: number;
+  loading = false;
+  questionnaire: any = {};
 
   constructor(private questionnaireService: QuestionnairesService,
               private aRoute: ActivatedRoute) { 
@@ -16,11 +18,15 @@ export class QuestionnaireComponent implements OnInit {
               }
 
   ngOnInit(): void {
+    this.getQuestionnaire();
   }
 
   getQuestionnaire(): void{
-
+    this.loading = true;
     this.questionnaireService.getQuestionnaire(this.questionnaireId).subscribe(data=> {
+      this.loading = false;
+      this.questionnaire = data;
+      console.log('here');
       console.log(data);
     });
   }
