@@ -32,6 +32,7 @@ import { QuestionnaireListComponent } from './components/start/questionnaire-lis
 import { AddNameComponent } from './components/start/questionnaire-list/add-name/add-name.component';
 import { QuestionComponent } from './components/start/questionnaire-list/question/question.component';
 import { AnwserQuestionnaireComponent } from './components/start/questionnaire-list/anwser-questionnaire/anwser-questionnaire.component';
+import { StatisticsComponent } from './components/dashboard/questionnaires/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AnwserQuestionnaireComponent } from './components/start/questionnaire-l
     AddNameComponent,
     QuestionComponent,
     AnwserQuestionnaireComponent,
+    StatisticsComponent,
   ],
   imports: [
     BrowserModule,

@@ -26,4 +26,8 @@ export class AnswerQuestionnaireService {
    saveAnswerQuestionnaire(answerQuestionnaire: AnswerQuestionnaire): Observable<any>{
     return this.http.post( this.myAppUrl + this.myApiUrl, answerQuestionnaire);
    }
+
+   getListQuestionnaireResponse(questionnaireId: number): Observable<any>{
+    return this.http.get(this.myAppUrl + this.myApiUrl + questionnaireId );
+   }
 }

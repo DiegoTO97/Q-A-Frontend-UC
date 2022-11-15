@@ -22,8 +22,11 @@
         <div class="card-body text-center">
             <h4 class="card-title">{{questionnaire.name}}</h4>
             <p class="card-text">{{questionnaire.description}}</p>
-            <button class="btn btn-success radius" routerLink="/dashboard/showQuestionnaire/{{questionnaire.id!}}">SHOW</button>
-            <button class="btn btn-danger radius" (click)="deleteQuestionnaire(questionnaire.id!)">DELETE</button>
+            <div class="row">
+                <button class="btn btn-success radius" routerLink="/dashboard/showQuestionnaire/{{questionnaire.id!}}">SHOW</button>
+                <button class="btn btn-info radius" routerLink="/dashboard/statistics/{{questionnaire.id!}}">STAT</button>
+                <button class="btn btn-danger radius" (click)="deleteQuestionnaire(questionnaire.id!)">DELETE</button>
+            </div>
         </div>
     </div>
 </div>

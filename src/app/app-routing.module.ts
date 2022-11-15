@@ -15,6 +15,7 @@ import { QuestionnaireListComponent } from './components/start/questionnaire-lis
 import { AddNameComponent } from './components/start/questionnaire-list/add-name/add-name.component';
 import { QuestionComponent } from './components/start/questionnaire-list/question/question.component';
 import { AnwserQuestionnaireComponent } from './components/start/questionnaire-list/anwser-questionnaire/anwser-questionnaire.component';
+import { StatisticsComponent } from './components/dashboard/questionnaires/statistics/statistics.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/start', pathMatch: 'full'},
@@ -31,6 +32,7 @@ const routes: Routes = [
     { path: '', component: QuestionnairesComponent},
     { path: 'changePa0ssword', component: ChangePasswordComponent},
     { path: 'showQuestionnaire/:id', component: QuestionnaireComponent},
+    { path: 'statistics/:id', component: StatisticsComponent },
     { path: 'newQuestionnaire', component: NewQuestionnairesComponent, children:[
       { path: 'stepOne', component: StepOneComponent},
       { path: 'stepTwo', component: StepTwoComponent}
